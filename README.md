@@ -76,6 +76,7 @@ Enter topic for debate: Should AI be regulated like medicine?
 ```text
 Enter topic for debate: Should homework be banned?
 
+[Round 1]
 AgentA: Homework should be banned because it is a waste of time and effort, and can lead to procrastination and poor academic performance.
 AgentB: Banning homework would have a detrimental impact on students' learning and academic success. It would deprive them of the valuable opportunity to practice and apply their knowledge in a structured learning environment. Homework also helps students develop time management skills, independence, and a love of learning.
 
