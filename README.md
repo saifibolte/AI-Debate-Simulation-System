@@ -1,69 +1,133 @@
-# AI Debate Simulation System
+# 🗣️ AI Debate Simulation with LangGraph
 
-This project is a command-line interface (CLI) tool that simulates a structured debate between two AI agents on a given topic. The system enforces turn-taking, tracks the debate history, prevents argument repetition, and concludes with a verdict from an AI judge. The entire debate flow is visualized as a Directed Acyclic Graph (DAG).
+This project simulates a structured **8-round debate** between two AI agents with memory, turn control, and an automated judge.  
+It is built using **LangGraph**, **Graphviz**, and **Ollama** (for running local LLMs).
 
-This implementation uses local language models via [Ollama](https://ollama.com/) and visualizes the debate structure using [Graphviz](https://graphviz.org/).
+---
 
-## Features
+## ✨ Features
+- **Two alternating agents** (AgentA vs AgentB) with profession-like personas.
+- **8 fixed rounds** (4 arguments each).
+- **Memory node** that prevents repetition and ensures logical flow.
+- **Judge node** that reviews the debate and declares a winner with justification.
+- **DAG diagram** showing the debate workflow.
+- **Logging** of all rounds, memory updates, and final judgment to `debate_log.txt`.
+- **CLI interface** for entering a topic at runtime.
 
--   **Dynamic Topic Input**: The debate topic is provided by the user at runtime.
--   **Two-Agent Debate**: `AgentA` argues FOR the topic, and `AgentB` argues AGAINST it.
--   **Structured Rounds**: The debate is fixed to 8 rounds, with each agent making 4 arguments.
--   **Memory & Repetition Check**: A memory node stores all arguments and uses string similarity to prevent agents from repeating themselves.
--   **AI Judge**: A third AI agent reviews the arguments and declares a winner with a justification.
--   **Automated Logging**: A complete transcript of the debate is saved to `debate_log.txt`.
--   **DAG Visualization**: The logical flow of the debate is rendered as an SVG image (`dag.svg`).
+---
 
-## How It Works
+## 🛠️ Installation
 
-The system follows a clear, graph-inspired workflow:
+### 1. Clone the repo
+```bash
+git clone https://github.com/yourusername/debate-simulation.git
+cd debate-simulation
+```
 
-1.  **Initialization**: The `main.py` script prompts the user for a debate topic.
-2.  **Debate Loop**: The script iterates through 8 rounds. In each round:
-    -   `AgentA` and `AgentB` are called sequentially.
-    -   The `models.py` module sends a formatted prompt to a local LLM (e.g., `gemma:2b`) via Ollama.
-    -   The `nodes.py` module's `DebateMemory` class checks if the generated argument is too similar to previous ones. If it is, the turn is skipped.
-    -   Valid arguments are added to memory.
-    -   The `graph.py` module adds a new node to the DAG for each valid argument.
-3.  **Judgment**: After 8 rounds, the Judge agent is prompted with the debate context to provide a verdict.
-4.  **Output Generation**: The final DAG is rendered to `dag.svg`, and the complete session log is written to `debate_log.txt`.
+### 2. Install dependencies
+Make sure you have **Python 3.9+** and **pip** installed.
 
-## Setup and Installation
+```bash
+pip install -r requirements.txt
+```
 
-### Prerequisites
+### 3. Install Graphviz
+Required for DAG generation.
 
--   Python 3.7+
--   [Ollama](https://ollama.com/): You must have Ollama installed and running.
--   [Graphviz](https://graphviz.org/download/): The Graphviz system package must be installed to render the DAG.
-    -   **On macOS (using Homebrew):** `brew install graphviz`
-    -   **On Debian/Ubuntu:** `sudo apt-get install graphviz`
-    -   **On Windows:** Download from the official site and add it to your system's PATH.
+- **Linux (Debian/Ubuntu)**:
+  ```bash
+  sudo apt-get install graphviz
+  ```
+- **macOS (Homebrew)**:
+  ```bash
+  brew install graphviz
+  ```
+- **Windows**: Download installer from [Graphviz.org](https://graphviz.org/download/).
 
-### Installation Steps
+### 4. Install Ollama
+Download Ollama from: [https://ollama.ai](https://ollama.ai)  
+Pull the required model (Gemma 2B is used by default):
 
-1.  **Clone the repository:**
-    ```sh
-    git clone <your-repo-url>
-    cd <your-repo-directory>
-    ```
+```bash
+ollama pull gemma:2b
+```
 
-2.  **Install Python dependencies:**
-    *(Note: The provided `requirements.txt` was adjusted to fit the actual code.)*
-    ```sh
-    pip install graphviz
-    ```
+---
 
-3.  **Pull the LLM model using Ollama:**
-    ```sh
-    ollama pull gemma:2b
-    ```
+## ▶️ Usage
 
-## Usage
+Run the debate system from the CLI:
 
-Run the main script from your terminal.
+```bash
+python main.py --topic "Should AI be regulated like medicine?"
+```
 
-**Interactive Mode:**
-The script will prompt you to enter a topic.
+or interactively:
 
-```sh
+```bash
 python main.py
+Enter topic for debate: Should AI be regulated like medicine?
+```
+
+---
+
+## 📊 Example Output
+
+```text
+[Round 1]
+AgentA: AI must be regulated to protect human lives in high-risk applications.
+[Round 2]
+AgentB: Over-regulation could hinder innovation and delay critical benefits.
+...
+[Round 8]
+AgentB: History shows overregulation often delays societal evolution.
+
+[Judge Decision]
+Winner: AgentA
+Reason: Presented more risk-aware and safety-aligned arguments.
+```
+
+The full debate is saved to:
+```
+debate_log.txt
+```
+
+The DAG diagram is generated as:
+```
+dag.svg
+```
+
+---
+
+## 🧩 Project Structure
+
+```
+├── main.py          # CLI entrypoint & debate loop
+├── graph.py         # Graphviz DAG builder
+├── nodes.py         # DebateMemory for structured history
+├── models.py        # Wrapper for Ollama LLM calls
+├── requirements.txt # Dependencies
+└── README.md        # Documentation
+```
+
+---
+
+## 📐 DAG Workflow
+
+```
+UserInput ──▶ AgentA ──▶ Memory ──▶ Judge
+          └▶ AgentB ──▶ Memory ──▶ Judge
+```
+
+Each agent → Memory → Judge ensures structured debate and final evaluation.
+
+---
+
+## 📜 Deliverables
+- **Source Code**: Modular nodes & debate logic
+- **README.md**: Setup & instructions (this file)
+- **DAG Diagram**: `dag.svg` generated at runtime
+- **Debate Log**: `debate_log.txt` (full transcript & verdict)
+- **Demo Video**: 2–4 min walkthrough (script below)
+
+---
