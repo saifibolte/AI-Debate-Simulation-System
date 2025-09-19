@@ -1,0 +1,5 @@
+langgraph>=0.0.25
+pydantic-ai>=0.1.0
+graphviz
+pydantic
+python-dotenv
