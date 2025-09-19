@@ -1,11 +1,11 @@
-# 🗣️ AI Debate Simulation with LangGraph
+# AI Debate Simulation System
 
 This project simulates a structured **8-round debate** between two AI agents with memory, turn control, and an automated judge.  
 It is built using **LangGraph**, **Graphviz**, and **Ollama** (for running local LLMs).
 
 ---
 
-## ✨ Features
+## Features
 - **Two alternating agents** (AgentA vs AgentB) with profession-like personas.
 - **8 fixed rounds** (4 arguments each).
 - **Memory node** that prevents repetition and ensures logical flow.
@@ -16,7 +16,7 @@ It is built using **LangGraph**, **Graphviz**, and **Ollama** (for running local
 
 ---
 
-## 🛠️ Installation
+## Installation
 
 ### 1. Clone the repo
 ```bash
@@ -54,7 +54,7 @@ ollama pull gemma:2b
 
 ---
 
-## ▶️ Usage
+## Usage
 
 Run the debate system from the CLI:
 
@@ -71,7 +71,7 @@ Enter topic for debate: Should AI be regulated like medicine?
 
 ---
 
-## 📊 Example Output
+## Example Output
 
 ```text
 [Round 1]
@@ -99,7 +99,7 @@ dag.svg
 
 ---
 
-## 🧩 Project Structure
+## Project Structure
 
 ```
 ├── main.py          # CLI entrypoint & debate loop
