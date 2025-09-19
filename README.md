@@ -7,7 +7,7 @@ It is built using **LangGraph**, **Graphviz**, and **Ollama** (for running local
 
 ## Features
 - **Two alternating agents** (AgentA vs AgentB) with profession-like personas.
-- **8 fixed rounds** (4 arguments each).
+- **8 fixed rounds**.
 - **Memory node** that prevents repetition and ensures logical flow.
 - **Judge node** that reviews the debate and declares a winner with justification.
 - **DAG diagram** showing the debate workflow.
