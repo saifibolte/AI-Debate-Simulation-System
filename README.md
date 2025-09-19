@@ -110,24 +110,3 @@ dag.svg
 └── README.md        # Documentation
 ```
 
----
-
-## 📐 DAG Workflow
-
-```
-UserInput ──▶ AgentA ──▶ Memory ──▶ Judge
-          └▶ AgentB ──▶ Memory ──▶ Judge
-```
-
-Each agent → Memory → Judge ensures structured debate and final evaluation.
-
----
-
-## 📜 Deliverables
-- **Source Code**: Modular nodes & debate logic
-- **README.md**: Setup & instructions (this file)
-- **DAG Diagram**: `dag.svg` generated at runtime
-- **Debate Log**: `debate_log.txt` (full transcript & verdict)
-- **Demo Video**: 2–4 min walkthrough (script below)
-
----
