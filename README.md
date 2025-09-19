@@ -74,17 +74,24 @@ Enter topic for debate: Should AI be regulated like medicine?
 ## Example Output
 
 ```text
-[Round 1]
-AgentA: AI must be regulated to protect human lives in high-risk applications.
+Enter topic for debate: Should homework be banned?
+
+AgentA: Homework should be banned because it is a waste of time and effort, and can lead to procrastination and poor academic performance.
+AgentB: Banning homework would have a detrimental impact on students' learning and academic success. It would deprive them of the valuable opportunity to practice and apply their knowledge in a structured learning environment. Homework also helps students develop time management skills, independence, and a love of learning.
+
 [Round 2]
-AgentB: Over-regulation could hinder innovation and delay critical benefits.
+AgentA: Homework should be banned as it creates a significant burden on students' time and can hinder their cognitive development.
+AgentB: While a complete ban on homework may be necessary to combat lazy students, it would be an unfair punishment for those who diligently complete their assignments and demonstrate their learning.
 ...
 [Round 8]
-AgentB: History shows overregulation often delays societal evolution.
+AgentA: Homework is a crucial educational tool that fosters independent learning and critical thinking skills. Banning homework would hinder a student's progress and limit their opportunities to develop vital life skills.
+AgentB: While some argue that homework is unnecessary or even detrimental to students' learning, it is a valuable tool for developing critical thinking, independent problem-solving, and time management skills. Homework allows students to practice and apply concepts learned in the classroom in a structured and independent setting, thus promoting deeper understanding and retention. Additionally, homework can provide valuable parental insights into their children's academic progress and a chance to encourage them to stay engaged with learning outside of school hours.
 
 [Judge Decision]
-Winner: AgentA
-Reason: Presented more risk-aware and safety-aligned arguments.
+Winner: AgentB
+Reason: Homework can be a valuable tool for learning and development, but it can also be a burden for students and families. When homework is not carefully managed, it can lead to increased stress, anxiety and burnout, which can negatively impact academic performance. Additionally, it can limit opportunities for social interaction and other extracurricular activities.
+DAG written to dag.svg
+Full debate log saved to debate_log.txt
 ```
 
 The full debate is saved to:
